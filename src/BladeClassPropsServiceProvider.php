@@ -2,9 +2,9 @@
 
 namespace LeonardoHipolito\BladeClassProps;
 
+use LeonardoHipolito\BladeClassProps\Commands\BladeClassPropsCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use LeonardoHipolito\BladeClassProps\Commands\BladeClassPropsCommand;
 
 class BladeClassPropsServiceProvider extends PackageServiceProvider
 {

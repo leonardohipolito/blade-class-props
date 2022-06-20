@@ -3,8 +3,8 @@
 namespace LeonardoHipolito\BladeClassProps\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use LeonardoHipolito\BladeClassProps\BladeClassPropsServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
