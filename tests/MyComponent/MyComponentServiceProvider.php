@@ -3,8 +3,6 @@
 namespace LeonardoHipolito\BladeClassProps\Tests\MyComponent;
 
 use Illuminate\Support\ServiceProvider;
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class MyComponentServiceProvider extends ServiceProvider
 {

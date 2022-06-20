@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Blade;
 
 it('apply property class', function () {
     $view = $this->blade('<x-my-component xs>Test</x-my-component>');

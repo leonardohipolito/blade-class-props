@@ -4,13 +4,14 @@ namespace LeonardoHipolito\BladeClassProps\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithViews;
-use Orchestra\Testbench\TestCase as Orchestra;
 use LeonardoHipolito\BladeClassProps\BladeClassPropsServiceProvider;
 use LeonardoHipolito\BladeClassProps\Tests\MyComponent\MyComponentServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
     use InteractsWithViews;
+
     protected function setUp(): void
     {
         parent::setUp();
