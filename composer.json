@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "leonardohipolito/blade-class-props",
+    "description": "easy way to convert blade component properties to classes",
     "keywords": [
-        ":vendor_name",
+        "leonardohipolito",
         "laravel",
-        ":package_slug"
+        "blade-class-props"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/leonardohipolito/blade-class-props",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Leonardo Hipolito",
+            "email": "leonardohipolito.dev@gmail.com",
             "role": "Developer"
         }
     ],
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "LeonardoHipolito\\BladeClassProps\\": "src",
+            "LeonardoHipolito\\BladeClassProps\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "LeonardoHipolito\\BladeClassProps\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -51,15 +51,19 @@
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "LeonardoHipolito\\BladeClassProps\\BladeClassPropsServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "BladeClassProps": "LeonardoHipolito\\BladeClassProps\\Facades\\BladeClassProps"
             }
         }
     },

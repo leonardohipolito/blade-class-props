@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace LeonardoHipolito\BladeClassProps\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class BladeClassPropsCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'blade-class-props';
 
     public $description = 'My command';
 
