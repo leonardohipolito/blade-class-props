@@ -3,17 +3,20 @@
 namespace LeonardoHipolito\BladeClassProps\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Foundation\Testing\Concerns\InteractsWithViews;
 use Orchestra\Testbench\TestCase as Orchestra;
 use LeonardoHipolito\BladeClassProps\BladeClassPropsServiceProvider;
+use LeonardoHipolito\BladeClassProps\Tests\MyComponent\MyComponentServiceProvider;
 
 class TestCase extends Orchestra
 {
+    use InteractsWithViews;
     protected function setUp(): void
     {
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'LeonardoHipolito\\BladeClassProps\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'LeonardoHipolito\\BladeClassProps\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
     }
 
@@ -21,6 +24,7 @@ class TestCase extends Orchestra
     {
         return [
             BladeClassPropsServiceProvider::class,
+            MyComponentServiceProvider::class,
         ];
     }
 

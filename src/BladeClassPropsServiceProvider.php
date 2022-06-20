@@ -5,21 +5,21 @@ namespace LeonardoHipolito\BladeClassProps;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use LeonardoHipolito\BladeClassProps\Commands\BladeClassPropsCommand;
+use Illuminate\View\ComponentAttributeBag;
+use LeonardoHipolito\BladeClassProps\Macros\ClassProps;
 
 class BladeClassPropsServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
-        /*
-         * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
-         */
-        $package
-            ->name('blade-class-props')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_blade-class-props_table')
-            ->hasCommand(BladeClassPropsCommand::class);
+
+        if (!ComponentAttributeBag::hasMacro('classProps')) {
+            ComponentAttributeBag::macro(
+                'classProps',
+                app(ClassProps::class)()
+            );
+        }
+
+        $package->name("blade-class-props");
     }
 }
