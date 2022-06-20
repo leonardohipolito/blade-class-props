@@ -1,6 +1,4 @@
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
-
 # easy way to convert blade component properties to classes
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/leonardohipolito/blade-class-props.svg?style=flat-square)](https://packagist.org/packages/leonardohipolito/blade-class-props)
@@ -10,13 +8,6 @@
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/blade-class-props.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/blade-class-props)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
@@ -26,38 +17,36 @@ You can install the package via composer:
 composer require leonardohipolito/blade-class-props
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="blade-class-props-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="blade-class-props-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="blade-class-props-views"
-```
-
 ## Usage
 
+
 ```php
-$bladeClassProps = new LeonardoHipolito\BladeClassProps();
-echo $bladeClassProps->echoPhrase('Hello, LeonardoHipolito!');
+// .../views/components/button.blade.php
+
+<div {{$attributes->classProps(['lg'=>'class-1 class-2','md'=>'class-3'], 'md')}}>
+    {{$slot}}
+</div>
+
+//or
+
+<div {{$attributes->classProps(['lg'=>'class-1 class-2','md'=>'class-3'])}}>
+    {{$slot}}
+</div>
 ```
+
+now you can use your component:
+
+```php
+<x-button lg>Test</x-button>
+```
+
+outputs:
+```html
+<div class="class-1 class-2">
+    Test
+</div>
+```
+
 
 ## Testing
 
@@ -68,10 +57,6 @@ composer test
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details.
 
 ## Security Vulnerabilities
 
