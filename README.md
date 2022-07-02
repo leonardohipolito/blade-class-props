@@ -32,6 +32,19 @@ composer require leonardohipolito/blade-class-props
 <div {{$attributes->classProps(['lg'=>'class-1 class-2','md'=>'class-3'])}}>
     {{$slot}}
 </div>
+
+//or 
+<button {{$attributes
+    ->classProps([
+        'xs'=>fn($c)=>$c->has('outline')?'text-primary-500':'bg-primary-500 text-white',
+        'md'=>'button-md'
+    ],'md')
+    ->classProps([
+        'outline'=>'bg-transparent'
+    ])
+}}>
+    {{$slot}}
+</button>
 ```
 
 now you can use your component:
