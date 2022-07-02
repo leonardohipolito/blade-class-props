@@ -18,6 +18,9 @@ class ClassProps
     {
         return function (array $cases, $default = null) {
             $css = collect($cases)->first(fn ($css, $key) => $this->has($key));
+            if (is_callable($css)) {
+                $css = $css($this);
+            }
 
             return $this->class([$css ?? ($default ? $cases[$default] : null)])
                 ->except(array_keys($cases));
