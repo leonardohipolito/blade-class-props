@@ -21,6 +21,7 @@ class ClassProps
             if (is_callable($css)) {
                 $css = $css($this);
             }
+
             return $this->class([$css ?? ($default ? $cases[$default] : null)])
                 ->except(array_keys($cases));
         };
