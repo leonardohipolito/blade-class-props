@@ -4,8 +4,6 @@ namespace LeonardoHipolito\BladeClassProps\Macros;
 
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\HtmlString;
 use Illuminate\View\ComponentAttributeBag;
 
 /**
@@ -21,12 +19,12 @@ class ClassProps
     public function __invoke()
     {
         return function (array $cases, $default = null) {
-            return (new class implements Htmlable
-            {
+            return (new class () implements Htmlable {
                 public ComponentAttributeBag $attributes;
                 public array $cases = [];
                 public array $classes = [];
                 public $default;
+
                 public function __invoke(
                     ComponentAttributeBag $attributes,
                     $cases,
@@ -39,12 +37,15 @@ class ClassProps
                         $this->classes[] = $attributes->get('class');
                     }
                     $this->classProps($cases, $default);
+
                     return $this;
                 }
+
                 public function classProps($cases, $default = null)
                 {
                     $this->cases = collect(Arr::wrap($cases))->toArray();
                     $this->default = $default;
+
                     return $this->toCssClasses();
                 }
 
@@ -63,12 +64,14 @@ class ClassProps
                         $css = $css($this->attributes);
                     }
                     $this->classes[] = $css ?? ($this->default ? $this->cases[$this->default] : null);
+
                     return $this;
                 }
 
                 public function __toString()
                 {
                     $classes = implode(' ', $this->classes);
+
                     return "class=\"$classes\"";
                 }
 
