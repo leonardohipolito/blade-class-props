@@ -11,7 +11,7 @@ it('apply default property class', function () {
     $view->assertSee('Test Component');
     $view->assertSee('button-md');
 });
-it('apply callable property class', function () {
+it('apply callable property class value', function () {
     $view = $this->blade('<x-my-component outline md>Test Component</x-my-component>');
     $view->assertSee('Test Component');
     $view->assertSee('button-md');
@@ -21,4 +21,15 @@ it('apply callable property class', function () {
     $view->assertSee('Test Component');
     $view->assertSee('button-xs-outline');
     $view->assertSee('bg-transparent');
+});
+it('apply callable property', function () {
+    $view = $this->blade('<x-my-component :outline="fn()=>true" md>Test Component</x-my-component>');
+    $view->assertSee('Test Component');
+    $view->assertSee('button-md');
+    $view->assertSee('bg-transparent');
+
+    $view = $this->blade('<x-my-component :outline="fn()=>false" md>Test Component</x-my-component>');
+    $view->assertSee('Test Component');
+    $view->assertSee('button-md');
+    $view->assertDontSee('bg-transparent');
 });

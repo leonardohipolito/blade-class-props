@@ -51,6 +51,7 @@ now you can use your component:
 
 ```php
 <x-button lg>Test</x-button>
+<x-button :lg="fn():bool=>true">Test</x-button>
 ```
 
 outputs:
